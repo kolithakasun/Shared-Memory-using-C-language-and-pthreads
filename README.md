@@ -2,6 +2,7 @@
 
 I created a shared memory using C language for an assignment.
 By using pthreads I write into the shared memory and then read from the shared memory.
+Code is explaned in the ExplainedCode.pdf under Task 1
 
 Task that is given to me is as follows,
 
