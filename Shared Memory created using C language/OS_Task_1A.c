@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <sys/ipc.h> //for shared memory
-#include <sys/shm.h> //for shared memory
+#include <sys/ipc.h> //library for shared memory
+#include <sys/shm.h> //library for shared memory
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
@@ -14,7 +14,7 @@ struct shm{
 };
 
 
-/* Global Variable */
+/* Global Variables */
 FILE *fp;
 char Name[5][20];
 char City[5][20];
@@ -43,7 +43,8 @@ void *readNames(void *vargp){
 	pthread_mutex_lock(&mutex);
 	int i;
 	
-	printf("*********************************************\nThread 1 is running, Reading Names\n");
+	printf("*********************************************\n");
+	printf("Thread 1 is running, Reading Names\n");
 	for(i=0; i < 5; i++){
 	
 		fscanf(fp,"%s",Name[i]);
@@ -84,7 +85,8 @@ void *readAges(void *vargp){
 //Thread 4 print Details
 void *printDetails(void *vargp){
 	
-	printf("Thread 4 is running, Printing Details\n*********************************************\n\n");
+	printf("Thread 4 is running, Printing Details\n");
+	printf("*********************************************\n\n");
 	int i,l;
 	
 	for(i=0; i<5; i++, l++){
